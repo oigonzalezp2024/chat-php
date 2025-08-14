@@ -1,6 +1,7 @@
 <?php
 // usa el recurso de infrastructura (código fuente)
 include_once "./src/infrastructure/leerChat.php";
+include_once './view/addMessageForm.php';
 // Acceso a datos
 $ruta_json = './src/infrastructure/data.json';
 // ejecución del programa
@@ -16,6 +17,7 @@ $result = leerChat($ruta_json);
 <body>
     <?php
     echo $result;
+    addMessageForm();
     ?>
 </body>
 </html>
