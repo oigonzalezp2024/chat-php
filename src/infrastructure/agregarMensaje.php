@@ -1,5 +1,7 @@
 <?php
 
+session_start();
+
 function agregarMensaje(
     $id_chat,
     $usuario,
@@ -22,7 +24,12 @@ function agregarMensaje(
     $link_https = $_POST['link_https'] ?? "";
 
     // Estructura de mensaje nuevo
+$id_mensaje = (int) $_SESSION['id_mensaje'];
+$_SESSION['id_mensaje'] = $id_mensaje + 1;
+$id_mensaje = $_SESSION['id_mensaje'] ;
+
     $nuevo_mensaje = [
+        "id_mensaje" => $id_mensaje,
         "usuario" => $usuario,
         "mensaje" => $mensaje,
         "video_youtube" => $video_youtube,
