@@ -1,5 +1,6 @@
 <?php
 include_once './src/infrastructure/agregarMensaje.php';
+include_once './src/infrastructure/modificarMensaje.php';
 
 $orden = $_GET['orden'];
 
@@ -22,7 +23,23 @@ if ($orden === 'agregarMensaje') {
 } else if ($orden === 'mostrarChat') {
     echo "aqui el codigo";
 } else if ($orden === 'modificarMensaje') {
-    echo "aqui el codigo";
+
+    $id_chat = $_POST['id_chat'];
+    $id_mensaje = $_POST['id_mensaje'];
+    $usuario = $_POST['usuario'];
+    $mensaje = $_POST['mensaje'];
+    $video_youtube = $_POST['video_youtube'];
+    $link_https = $_POST['link_https'];
+
+    modificarMensaje(
+        $id_chat,
+        $id_mensaje,
+        $usuario,
+        $mensaje,
+        $video_youtube,
+        $link_https
+    );
+    //header('Location: ./');
 } else if ($orden === 'eliminarMensaje') {
     echo "aqui el codigo";
 }
